@@ -8,11 +8,21 @@
 
 Think back to when you were learning your first object-oriented programming language. If you learned to program in the last 15 years, there's a good chance that was your first language, period. You probably started off with simple concepts like conditionals and loops, moved on to methods, and then to classes. And then at some point your instructor (or mentor or tutorial video) introduced a concept called _inheritance_.
 
-If you're like me, your first exposure to inheritance was a mess. Maybe you  
+If you're like me, your first exposure to inheritance was a bit of mess. Maybe you couldn't quite get a handle on the syntax. Or maybe you were able to make it work on the class project and pass the exam, but couldn't quite figure out where you would ever use this in the real world. And then once that introductory course was over, you probably packed inheritance back up into your mental toolbox and didn't use it again for a long time.
 
-I have never seen inheritance taught well. This includes the several times it's been taught to me, as well as the three different programs in which I've taught it.
+The fact is, inheritance is complicated. It's hard to use correctly, even for experienced engineers - it took me several years in industry before I felt like I had a good handle on the subject. Yet inheritance is a tool with first-class support in most modern languages, and which is taught to many novice programmers within their first six months of programming.
 
 In this blog post I'll dive into why teaching inheritance is hard, why current methods don't work, and what Ada Developers Academy is doing to try and address this problem.
+
+## Do We Need Inheritance?
+
+The first question we should ask is, "do we really need to teach inheritance?" This might seem like a silly question - everyone teaches inheritance, it's a key part of object-oriented programming! However time is a scarce resource in a program like Ada's, and everything we _do_ teach means there's something else we _don't_ teach. We've found more often than you might expect that we can drop something that "everyone" does, and end up with a leaner curriculum that is more valuable to both our students and their employers.
+
+But as it turns out, we do need to teach inheritance. This is due to the way we leverage application frameworks to build realistic software. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
+
+Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. If I had to guess, I'd say it's a question that many programs haven't thought to ask.
+
+It's also not a problem I'm being paid to solve / write a blog post about. We know that Ada does need inheritance, so we can confidently move forward with our analysis.
 
 ## Why Teaching Inheritance is Hard
 
@@ -24,10 +34,10 @@ Let's dive deeper into each of these
 
 ### Inheritance is Tricky
 
-At a high level inheritance is easy to explain: one class gets all the code from another class, and can override pieces and add its own bits.
+One of the main reasons teaching inheritance is hard is because inheritance itself is hard. At a high level inheritance is easy to explain: one class gets all the code from another class, and can override pieces and add its own bits. As so often happens, the devil is in the details.
 
-As so often happens, the devil is in the details. For example, with Ruby the following questions arise:
-- How are static method handled?
+For example, with Ruby the following questions arise:
+- Are static methods inherited? Can they be overridden?
 - How are instance variables, class variables, and class-instance variables handled?
 - Can constants be overridden? If not, what should you do instead?
 - How does inheritance interact with nested classes?
@@ -40,23 +50,27 @@ And that's for Ruby, which is supposed to be beginner friendly! Other languages 
 
 Whatever language you choose, there's going to be a lot of rules to remember. How do you encode all these, especially for a novice? How do you decide what to include up-front, what to put in the appendix, what to omit entirely? This is an important part of the problem - all your real-world knowledge of how inheritance is used and what kinds of problems it solves won't do you any good if you can't actually apply it in code.
 
-Fortunately, this part of the problem of teaching inheritance is well-understood. There are many excellent texts that round up the complicated syntax and semantics of inheritance into digestible, memorizable chunks. Any alternative treatment of inheritance needs to acknowledge this challenge and build upon this existing work.
+Fortunately, this part of the problem of teaching inheritance is well-understood. There are many excellent texts that round up the complicated syntax and semantics of inheritance into digestible, intuitive chunks. Any alternative treatment of inheritance needs to acknowledge this challenge and build upon this existing work.
 
 ### Problems that Need Inheritance are Complex
 
-- Inheritance is used to share code between classes. If you're writing code that benefits from inheritance, that means there are several classes that are 
+The other reason that teaching inheritance is hard is because problems that benefit from inheritance tend to be complex.
 
-## Thinking About Inheritance
+At a minimum, a problem to be solved with inheritance needs:
+- Two or more domain objects that are similar enough they need to share code, but not so similar that they could be combined into one class
+- Enough other things going on that it's worth encapsulating the domain objects as classes in the first place
 
-The first question to ask is, "do we really need to teach inheritance?" This might seem like a silly question - everyone teaches inheritance, it's a key part of object-oriented programming! However our curriculum is jam-packed into our 6-month course, and everything we _do_ teach means there's something else we _don't_ teach. We've found more often than you might expect that we can drop something that "everyone" does, and end up with a leaner curriculum that is more valuable to both our students and their employers.
+That's a non-trivial amount of complexity, especially for a classroom full of beginners. How can you reasonably build a school project that establishes this complexity, but still fits within the tight confines of the curriculum?
 
-But as it turns out, we do have to teach inheritance. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
+There is certainly prior work around addressing complexity in software projects. Books like _Practical Object-Oriented Design: An Agile Primer Using Ruby_ by Sandi Metz (POODR), or _Design Patterns_ by Gamma, Helm, Johnson and Vlissides (the Gang of Four) address software design more generally, employing inheritance as one tool among many. However, these books are targeted at experienced engineers trying to up their game, not at novices learning their chosen language for the first time.
 
-### How is Inheritance Used?
+One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research.
+
+## Case Studies: How is Inheritance Used?
 
 The answer to the previous question leads us to two others: "How is inheritance used in the real world? How is inheritance most likely to be used by junior engineers in their first few years on the job?" Understanding how inheritance is used can give us some direction on how it should be taught. Let's look at a few examples.
 
-#### Rails
+### Rails
 
 In Rails, almost every class you write will inherit from something. The two most common are
 - `ActiveRecord::Base` - superclass for models
@@ -68,7 +82,7 @@ Another important idiom is the [template method pattern](https://en.wikipedia.or
 
 For the most part, Rails does not have you define your own superclasses. The exception to this is `ApplicationRecord` and `ApplicationController`, which sit in the hierarchy between concrete models or controllers and the abstract Rails implementation - these are generated automatically by Rails, but are open for you to modify.
 
-#### React
+### React
 
 React isn't quite as broad in its use of inheritance as Rails. However, [every component class inherits from `React.Component`](https://reactjs.org/docs/components-and-props.html).
 
@@ -76,7 +90,7 @@ In React we again see the template method pattern pop up. Whether you're impleme
 
 React also does not encourage defining your own superclasses. In fact, their official documentation is rather explicit that [inheritance between components should be avoided](https://reactjs.org/docs/composition-vs-inheritance.html).
 
-#### Other Frameworks
+### Other Frameworks
 
 Rails and React are the two industry-grade frameworks I'm most familiar with, but I've dabbled in some others, namely Android (Java) and Unity (C#).
 
@@ -84,7 +98,7 @@ Android follows a similar pattern: everything you write inherits from some built
 
 Unity matches the pattern as well, but they seem to be more lenient about extending your own classes, at least as far as I can tell from [the Unity documentation on inheritance](https://unity3d.com/learn/tutorials/topics/scripting/inheritance).
 
-#### Summary
+### Summary
 
 There are a few clear takeaways from this quick survey:
 
