@@ -48,7 +48,7 @@ And that's for Ruby, which is supposed to be beginner friendly! Other languages 
 - JavaScript: prototypical inheritance model, multiple types of functions
 - C++: static typing, interfaces, templating, object slicing
 
-Whatever language you choose, there's going to be a lot of rules to remember. How do you encode all these, especially for a novice? How do you decide what to include up-front, what to put in the appendix, what to omit entirely? This is an important part of the problem - all your real-world knowledge of how inheritance is used and what kinds of problems it solves won't do you any good if you can't actually apply it in code.
+Whatever language you choose, there's going to be a lot of rules to remember. How do you encode all these, especially for a novice? How do you decide what to include up-front, what to put in the appendix, what to omit entirely? How do you introduce specific details while still keeping the discussion general enough to translate to other languages? This is an important part of the problem - all your theoretical knowledge of how inheritance is used and what kinds of problems it solves won't do you any good if you can't apply it in code.
 
 Fortunately, this part of the problem of teaching inheritance is well-understood. There are many excellent texts that round up the complicated syntax and semantics of inheritance into digestible, intuitive chunks. Any alternative treatment of inheritance needs to acknowledge this challenge and build upon this existing work.
 
