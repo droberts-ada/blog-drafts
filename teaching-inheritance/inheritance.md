@@ -24,15 +24,23 @@ But as it turns out, we do need to teach inheritance. This is due to the way we 
 
 Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. It's also not a problem I'm being paid to solve / write a blog post about. We know that the curriculum we cover at Ada does need inheritance, so we can confidently move forward with our analysis.
 
-## Why Teaching Inheritance is Hard
+## What it Means to Teach Inheritance
 
-Teaching inheritance is hard for two reasons:
+I have heard using inheritance when writing software compared to using a lathe as a craftsperson. Both solve a certain class of problem extremely well, and neither is particularly useful if you don't have that problem. Both lathes and inheritance take a fair bit of training to use well, and both are liable to make a big mess if used incorrectly. Every machine shop has a lathe, and most modern programming languages support inheritance.
+
+The lathe metaphor allows us to break down the problem a little more. Thinking about it this way, we can see that any curriculum on inheritance needs to address two types of questions.
+
+1. How do you use inheritance? What specific syntax do you need, and how does that change the way information flows through your program? What rules do you need to keep in mind as you work (e.g. [Liskov substitution](https://en.wikipedia.org/wiki/Liskov_substitution_principle), the [open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle))? These questions are more mechanical, and the answers are often language-specific.
+1. When should you use inheritance? How do you identify that a problem is likely to be neatly solved by inheritance, or that inheritance is a poor choice? What are the tradeoffs involved in deciding whether or not to use inheritance? These questions are more theoretical, and the answers are likely to apply no matter what language or framework you use.
+
+Thinking about these questions leads us to two main issues that make teaching inheritance difficult:
+
 1. The syntax and semantics of inheritance are tricky
 1. Problems that are well-suited to inheritance are complex
 
-Let's dive deeper into each of these.
+Let's dive into each of these a little deeper.
 
-### Inheritance is Tricky
+### Programming with Inheritance is Tricky
 
 One of the main reasons teaching inheritance is hard is because inheritance itself is hard. At a high level inheritance is easy to explain: one class gets all the code from another class, and can override pieces and add its own bits. As so often happens, the devil is in the details.
 
@@ -59,13 +67,13 @@ The other reason that teaching inheritance is hard is because problems that bene
 - Two or more domain objects that are similar enough they need to share code, but not so similar that they could be combined into one class
 - Enough other things going on that it's worth encapsulating the domain objects as classes in the first place
 
-That's a non-trivial amount of complexity, especially for a classroom full of beginners. How can you reasonably build a school project that establishes this complexity, but still fits within the tight time limits of the course? This is where existing curriculums tend to break down (more on this later).
+That's a non-trivial amount of complexity, especially for a classroom full of beginners. How can you reasonably build a school project that establishes this complexity, but still fits within the tight time limits of the course? This is where existing curriculums tend to break down.
 
 One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research, so we'll come back to this problem later.
 
 ## How is Inheritance Used?
 
-Since Ada is modeled as a workforce development program, one of the most valuable things we can do is ask "what's going on in industry?" Specifically,
+Since Ada is a workforce development program, one of the most valuable things we can do is ask "what's going on in industry?" Specifically,
 
 - How is inheritance used in the real world?
 - How is inheritance most likely to be used by a junior engineer in their first year or so on the job?
