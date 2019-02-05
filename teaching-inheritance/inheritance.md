@@ -46,7 +46,8 @@ For example, with Ruby the following questions arise:
 And that's for Ruby, which is supposed to be beginner friendly! Other languages have their own wildcards:
 - Python: multiple inheritance
 - JavaScript: prototypical inheritance model, multiple types of functions
-- C++: static typing, interfaces, templating, object slicing
+- Java: static typing and explicit polymorphism, interfaces, templating
+- C++: all the Java problems plus memory management and object slicing (shudder)
 
 Whatever language you choose, there's going to be a lot of rules to remember. How do you encode all these, especially for a novice? How do you decide what to include up-front, what to put in the appendix, what to omit entirely? How do you introduce specific details while still keeping the discussion general enough to translate to other languages? This is an important part of the problem - all your theoretical knowledge of how inheritance is used and what kinds of problems it solves won't do you any good if you can't apply it in code.
 
