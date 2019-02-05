@@ -18,11 +18,9 @@ In this blog post I'll dive into why teaching inheritance is hard, some of the p
 
 The first question we should ask is, "do we really need to teach inheritance?" This might seem like a silly question - everyone teaches inheritance, it's a key part of object-oriented programming! However time is a scarce resource in a program like Ada's, and everything we _do_ teach means there's something else we _don't_ teach. We've found more often than you might expect that we can drop something that "everyone" does, and end up with a leaner curriculum that is more valuable to both our students and their employers.
 
-But as it turns out, we do need to teach inheritance. This is due to the way we leverage application frameworks to build realistic software. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
+But as it turns out, we do need to teach inheritance. This is due to the way we leverage frameworks like [Ruby on Rails](https://rubyonrails.org/) and [React](https://reactjs.org/) later in the course. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
 
-Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. If I had to guess, I'd say it's a question that many programs haven't thought to ask.
-
-It's also not a problem I'm being paid to solve / write a blog post about. We know that Ada does need inheritance, so we can confidently move forward with our analysis.
+Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. It's also not a problem I'm being paid to solve / write a blog post about. We know that Ada does need inheritance, so we can confidently move forward with our analysis.
 
 ## Why Teaching Inheritance is Hard
 
@@ -54,19 +52,18 @@ Fortunately, this part of the problem of teaching inheritance is well-understood
 
 ### Problems that Need Inheritance are Complex
 
-The other reason that teaching inheritance is hard is because problems that benefit from inheritance tend to be complex.
-
-At a minimum, a problem to be solved with inheritance needs:
+The other reason that teaching inheritance is hard is because problems that benefit from inheritance tend to be complex. At a minimum, a problem to be solved with inheritance needs:
 - Two or more domain objects that are similar enough they need to share code, but not so similar that they could be combined into one class
 - Enough other things going on that it's worth encapsulating the domain objects as classes in the first place
 
-That's a non-trivial amount of complexity, especially for a classroom full of beginners. How can you reasonably build a school project that establishes this complexity, but still fits within the tight confines of the curriculum? This is where existing curriculums tend to break down (more on this later).
+That's a non-trivial amount of complexity, especially for a classroom full of beginners, and possibly an instructor without professional engineering experience. How can you reasonably build a school project that establishes this complexity, but still fits within the tight confines of the curriculum? This is where existing curriculums tend to break down (more on this later).
 
-One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research.
+One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research, so we'll come back to this problem later.
 
 ## How is Inheritance Used?
 
-In order to 
+Since Ada is modeled as a workforce development program, one of the most valuable things we can do is ask "what is going on in industry?" Specifically,
+
 - How is inheritance used in the real world?
 - How is inheritance most likely to be used by a junior engineer in their first year or so on the job?
 
@@ -75,8 +72,8 @@ Understanding how inheritance is used can give us some direction on how it shoul
 ### Rails
 
 In Rails, almost every class you write will inherit from something. The two most common are
-- `ActiveRecord::Base` - superclass for models
-- `ActionController::Base` - superclass for controllers
+- `ActiveRecord::Base` for models
+- `ActionController::Base` for controllers
 
 You also see inheritance used for everything from database migrations to configuration management - its the Rails Way&trade;. If you want to do something, you inherit from a class somewhere in the Rails framework. These superclasses are generally quite abstract, and each covers some functionality specific to the domain of an MVC framework.
 
@@ -147,33 +144,3 @@ OK, we've got some knowledge about inheritance is used. How do we use this to st
 - Students' first exposure to inheritance should be through extending an existing superclass. This matches the way inheritance is used in the real world, and makes the benefits (not having to re-write a bunch of code) immediately clear.
 - It's OK to use toy hierarchies (e.g. animal/dog/cat) to introduce the syntax, but the lesson should move on to 
 
-## Existing Work
-
-I claim that I have never seen inheritance taught well. To back up this claim, let's pull a few books off my shelf and see how they address inheritance.
-
-### POODR
-
-We'll start with one of my favorites: _Practical Object-Oriented Design: An Agile Primer Using Ruby_ (POODR) by Sandi Metz. In chapter 6 of POODR, Metz targets experienced engineers trying to up their game. She assumes familiarity with the syntax and semantics of inheritance, focusing instead on when inheritance is appropriate, useful design idioms, and common pitfalls to avoid. It's a great treatment of the topic, but its role is not as an introduction.
-
-Metz uses the example of inventory management at a bicycle touring company. `Bicycle` is the superclass, and `RoadBike` and `MountainBike` are subclasses. It's a toy problem that meets Metz's goals: it effectively shows syntax and idioms, but is not something you would be likely to use inheritance for in the real world.
-
-### AP Computer Science A
-
-The test prep book for AP Computer Science A, published by Baron's, uses `Student`, `UnderGrad` and `GradStudent`, a similarly trivial example. If you want to know the syntax for inheritance in Java they've got you covered, but there's almost no mention of what inheritance is used for in the real world.
-
-### Building Java Programs
-
-_Building Java Programs_ by Stuart Reges and Marty Stepp, used for the introductory Computer Science courses at the University of Washington.
-
-### Unity Tutorials
-
-The Unity game engine has a [short tutorial on inheritance](https://unity3d.com/learn/tutorials/topics/scripting/inheritance) in their tutorials. This one is interesting to me because they 
-
-
-
-
-## What Ada is Doing
-
-
-
-### Real World Inheritance
