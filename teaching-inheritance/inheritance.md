@@ -143,7 +143,7 @@ However, these books are targeted at experienced engineers trying to up their ga
 
 An ideal curriculum would bridge the gap between these two approaches, introducing both syntax and common inheritance idioms, and getting new engineers used to the work of extending an existing class.
 
-## What Ada is Doing
+## Ada's Approach to Inheritance
 
 The instructional team at Ada has been unhappy with our approach to inheritance for a while now, but haven't quite known what to do about it. Now that we've done some research and formalized our engineering and pedagogical intuition, here's the approach we've come up with:
 
