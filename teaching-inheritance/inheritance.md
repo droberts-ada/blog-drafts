@@ -10,7 +10,7 @@ _by Dan Roberts, Lead Instructor_
 
 Think back to when you were learning your first object-oriented programming language. If you learned to program in the last 15 years, there's a good chance that was your first language, period. You probably started off with simple concepts like conditionals and loops, moved on to methods, and then to classes. And then at some point your instructor (or mentor or tutorial video) introduced a concept called _inheritance_.
 
-If you're like me, your first exposure to inheritance was a bit of mess. Maybe you couldn't quite get a handle on the syntax. Or maybe you were able to make it work on the class project and pass the exam, but couldn't quite figure out where you would ever use this in the real world. And then once that introductory course was over, you probably packed inheritance back up into your mental toolbox and didn't use it again for a long time.
+If you're like me, your first exposure to inheritance was a bit of a mess. Maybe you couldn't quite get a handle on the syntax. Or maybe you were able to make it work on the class project and pass the exam, but couldn't quite figure out where you would ever use this in the real world. And then once that introductory course was over, you probably packed inheritance back up into your mental toolbox and didn't use it again for a long time.
 
 The fact is, inheritance is complicated. It's hard to use correctly, even for experienced engineers - it took me several years in industry before I felt like I had a good handle on the subject. Yet inheritance is a tool with first-class support in most modern languages, and which is taught to many novice programmers almost immediately.
 
@@ -20,9 +20,9 @@ In this blog post I'll dive into why teaching inheritance is hard, some of the p
 
 The first question we should ask is, "do we really need to teach inheritance?" This might seem like a silly question - everyone teaches inheritance, it's a key part of object-oriented programming! However time is a scarce resource in a program like Ada's, and everything we _do_ teach means there's something else we _don't_ teach. We've found more often than you might expect that we can drop something that "everyone" does, and end up with a leaner curriculum that is more valuable to both our students and their employers.
 
-But as it turns out, we do need to teach inheritance. This is due to the way we leverage frameworks like [Ruby on Rails](https://rubyonrails.org/) and [React](https://reactjs.org/) later in the course. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
+But as it turns out, we do need to teach inheritance. This is due to the way we leverage frameworks like [Ruby on Rails](https://rubyonrails.org/) and [ReactJS](https://reactjs.org/) later in the course. Both Rails and React use inheritance at a fundamental level, and our curriculum wouldn't make sense without it. Moreover, inheritance is an important technique for building real-world software, and our graduates use it on a regular basis in the wild.
 
-Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. It's also not a problem I'm being paid to solve / write a blog post about. We know that Ada does need inheritance, so we can confidently move forward with our analysis.
+Whether inheritance should be taught to novices who don't have an immediate need for it, for example in the first year of a 4-year university program in CS, is a different question. It's also not a problem I'm being paid to solve / write a blog post about. We know that the curriculum we cover at Ada does need inheritance, so we can confidently move forward with our analysis.
 
 ## Why Teaching Inheritance is Hard
 
@@ -58,7 +58,7 @@ The other reason that teaching inheritance is hard is because problems that bene
 - Two or more domain objects that are similar enough they need to share code, but not so similar that they could be combined into one class
 - Enough other things going on that it's worth encapsulating the domain objects as classes in the first place
 
-That's a non-trivial amount of complexity, especially for a classroom full of beginners, and possibly an instructor without professional engineering experience. How can you reasonably build a school project that establishes this complexity, but still fits within the tight time limits of the course? This is where existing curriculums tend to break down (more on this later).
+That's a non-trivial amount of complexity, especially for a classroom full of beginners. How can you reasonably build a school project that establishes this complexity, but still fits within the tight time limits of the course? This is where existing curriculums tend to break down (more on this later).
 
 One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research, so we'll come back to this problem later.
 
@@ -101,7 +101,7 @@ Unity matches the pattern as well, but they seem to be more lenient about extend
 
 ### Industry Experience
 
-This matches my experience of how engineering work tends to be done. Design work, in this case identifying the abstraction and building the superclass, is done by the team as a whole or by someone with an impressive sounding job title like "principle consulting systems architect". Implementing the details in a subclass is the job of an individual engineer.
+This matches my experience of how engineering work tends to be done. Design work, in this case identifying the abstraction and building the superclass, is done by the team as a whole or by someone with an impressive sounding job title like "principal consulting systems architect". Implementing the details in a subclass is the job of an individual engineer.
 
 Concretely, as I was spinning up at Isilon I spent a lot of time working on C++ and Python classes that filled in the details of an existing pattern, and not a lot of time inventing new patterns. Template methods were something I used frequently without having a name for them, and which I later wished I had learned about in college.
 
@@ -130,7 +130,7 @@ We'll use a case study to demonstrate: the excellent [_Building Java Programs: A
 - The chapter finishes with a more complex example dealing with different types of stocks and assets.
   - This is substantial enough that inheritance is an appropriate technique.
   - In this example, the pieces at the top of the hierarchy are abstract (an interface and an abstract class), matching the pattern identified above.
-  - The book does not provide any context for how this code will be used. I would argue this is is a major oversight. Writing code in a vacuum is fine for experienced engineers, but in my experience novices benefit from concrete examples of how code will be used from the "outside". With inheritance in particular, this would demonstrate how polymorphism is useful.
+  - The book does not provide any context for how this code will be used. I would argue this is a major oversight. Writing code in a vacuum is fine for experienced engineers, but in my experience novices benefit from concrete examples of how code will be used from the "outside". With inheritance in particular, this would demonstrate how polymorphism is useful.
 - There is no mention of the idea of extending a class implemented by a framework.
 
 In general _Building Java Programs_ is excellent, and I have a tremendous amount of respect for Reges and Stepp. It certainly did a good job of preparing my students for the AP CS exam. However, it does not introduce inheritance as it is used in the real world, particularly by novice engineers. As far as I can tell this is typical of introductory CS courses - certainly my undergraduate education at Purdue followed a similar pattern.
@@ -145,7 +145,7 @@ An ideal curriculum would bridge the gap between these two approaches, introduci
 
 ## Ada's Approach to Inheritance
 
-The instructional team at Ada has been unhappy with our approach to inheritance for a while now, but haven't quite known what to do about it. Now that we've done some research and formalized our engineering and pedagogical intuition, here's the approach we've come up with:
+The instructional team at Ada has been unhappy with our approach to inheritance for a while now, but we haven't quite known what to do about it. Now that we've done some research and formalized our engineering and pedagogical intuition, here's the approach we've come up with:
 
 - Simple examples and accessible metaphors are fine for [introducing syntax and semantics](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/object-inheritance.md), though as Reges and Stepp demonstrate they don't have to be completely unrealistic.
 - Common idioms like abstract classes and the template method pattern should be introduced as soon as the basic syntax is understood. **TODO CURRICULUM LINK**
