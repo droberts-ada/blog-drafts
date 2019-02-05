@@ -1,5 +1,7 @@
 # Teaching Inheritance
 
+_by Dan Roberts, Lead Instructor_
+
 > Not one of them<br>
 > is like another.<br>
 > Don't ask us why.<br>
@@ -28,7 +30,7 @@ Teaching inheritance is hard for two reasons:
 1. The syntax and semantics of inheritance are tricky
 1. Problems that are well-suited to inheritance are complex
 
-Let's dive deeper into each of these
+Let's dive deeper into each of these.
 
 ### Inheritance is Tricky
 
@@ -56,13 +58,13 @@ The other reason that teaching inheritance is hard is because problems that bene
 - Two or more domain objects that are similar enough they need to share code, but not so similar that they could be combined into one class
 - Enough other things going on that it's worth encapsulating the domain objects as classes in the first place
 
-That's a non-trivial amount of complexity, especially for a classroom full of beginners, and possibly an instructor without professional engineering experience. How can you reasonably build a school project that establishes this complexity, but still fits within the tight confines of the curriculum? This is where existing curriculums tend to break down (more on this later).
+That's a non-trivial amount of complexity, especially for a classroom full of beginners, and possibly an instructor without professional engineering experience. How can you reasonably build a school project that establishes this complexity, but still fits within the tight time limits of the course? This is where existing curriculums tend to break down (more on this later).
 
 One tool that springs to mind to address this challenge is [scaffolding](https://www.edglossary.org/scaffolding/), possibly by implementing some portion of a project in advance. This allows an instructor to reduce the complexity of the work required of the student, without reducing the complexity of the problem space as a whole. Deciding exactly what and how much to scaffold requires us to do a little more research, so we'll come back to this problem later.
 
 ## How is Inheritance Used?
 
-Since Ada is modeled as a workforce development program, one of the most valuable things we can do is ask "what is going on in industry?" Specifically,
+Since Ada is modeled as a workforce development program, one of the most valuable things we can do is ask "what's going on in industry?" Specifically,
 
 - How is inheritance used in the real world?
 - How is inheritance most likely to be used by a junior engineer in their first year or so on the job?
@@ -97,6 +99,12 @@ Android follows a similar pattern: everything you write inherits from some built
 
 Unity matches the pattern as well, but they seem to be more lenient about extending your own classes, at least as far as I can tell from [the Unity documentation on inheritance](https://unity3d.com/learn/tutorials/topics/scripting/inheritance).
 
+### Industry Experience
+
+This matches my experience of how engineering work tends to be done. Design work, in this case identifying the abstraction and building the superclass, is done by the team as a whole or by someone with an impressive sounding job title like "principle consulting systems architect". Implementing the details in a subclass is the job of an individual engineer.
+
+Concretely, as I was spinning up at Isilon I spent a lot of time working on C++ and Python classes that filled in the details of an existing pattern, and not a lot of time inventing new patterns. Template methods were something I used frequently without having a name for them, and which I later wished I had learned about in college.
+
 ### Summary
 
 There are a few clear takeaways from this quick survey:
@@ -106,8 +114,6 @@ There are a few clear takeaways from this quick survey:
 - Often the superclass is provided for you by whatever framework you're using
 - Superclasses tend to be abstract, both semantically (embodying a high-level concept) and functionally (never instantiated)
 - The template method pattern is extremely important
-
-This matches my intuition about how engineering is done. Design work, in this case identifying the abstraction and building the superclass, is done by the team as a whole or by someone with an impressive sounding job title like "lead consulting systems architect". Implementing the details in a subclass is the job of an individual engineer.
 
 ## Existing Work
 
@@ -139,8 +145,21 @@ An ideal curriculum would bridge the gap between these two approaches, introduci
 
 ## What Ada is Doing
 
-OK, we've got some knowledge about inheritance is used. How do we use this to structure curriculum?
+The instructional team at Ada has been unhappy with our approach to inheritance for a while now, but haven't quite known what to do about it. Now that we've done some research and formalized our engineering and pedagogical intuition, here's the approach we've come up with:
 
-- Students' first exposure to inheritance should be through extending an existing superclass. This matches the way inheritance is used in the real world, and makes the benefits (not having to re-write a bunch of code) immediately clear.
-- It's OK to use toy hierarchies (e.g. animal/dog/cat) to introduce the syntax, but the lesson should move on to 
+- Simple examples and accessible metaphors are fine for [introducing syntax and semantics](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/object-inheritance.md), though as Reges and Stepp demonstrate they don't have to be completely unrealistic.
+- Common idioms like abstract classes and the template method pattern should be introduced as soon as the basic syntax is understood. **TODO CURRICULUM LINK**
+- Students' first serious inheritance project should involve extending an existing superclass.
+  - This matches the way inheritance is used in the real world, and makes the benefits (not having to re-write a bunch of code) immediately clear.
+  - Instructors would provide the following scaffolding:
+    - Superclass implementation
+    - Driver code demonstrating polymorphism
+    - Another subclass, to model the inheritance mechanism
+    - Possibly a test suite or test stubs
+- If time permits, a second inheritance project would focus on design, and have students build both the superclass and subclasses, as well as driver code.
 
+At Ada, the first inheritance project takes the form of [OO Ride Share](https://github.com/AdaGold/oo-ride-share/). Students are asked to load information about drivers, passengers and trips from CSV files; we provide a `CsvRecord` superclass and `Passenger` and `Trip` subclasses pre-built. We feel this problem is complex enough to justify inheritance but simple enough to spin up on quickly. It also mimics the way ActiveRecord is used in Rails, which will hopefully lead to more comfort and deeper understanding once we get into our Rails unit.
+
+The second project is still in the planning phase, but the idea is a command-line app that integrates with the [Slack API](https://api.slack.com/). After an in-class design activity students will implement a `Recipient` superclass that handles most of the API interaction, and `User` and `Channel` subclasses that fill in the details. They will also build a driver class that interacts with the user, demonstrating the power of polymorphism. We don't have the project write-up finished yet, but there is a [prototype of the end product](https://github.com/droberts-ada/c11-week6-project).
+
+We've spent a lot of time thinking about this fresh approach to teaching inheritance, and I'm excited to see the results. Watch this space for an update in a couple months as we conclude our Intro to Ruby unit and move into Rails.
