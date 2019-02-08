@@ -157,7 +157,7 @@ An ideal curriculum would bridge the gap between these two approaches, introduci
 The instructional team at Ada has been unhappy with our approach to inheritance for a while now, but we haven't quite known what to do about it. Now that we've done some research and formalized our engineering and pedagogical intuition, here's the approach we've come up with:
 
 - Simple examples and accessible metaphors are fine for [introducing syntax and semantics](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/object-inheritance.md), though as Reges and Stepp demonstrate they don't have to be completely unrealistic.
-- Common idioms like abstract classes and the template method pattern should be introduced as soon as the basic syntax is understood. **TODO CURRICULUM LINK**
+- Common idioms like [abstract classes and the template method](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/02-intermediate-ruby/inheritance-idioms.md) pattern should be introduced as soon as the basic syntax is understood.
 - Students' first serious inheritance project should involve extending an existing superclass.
   - This matches the way inheritance is used in the real world, and makes the benefits (not having to re-write a bunch of code) immediately clear.
   - Instructors would provide the following scaffolding:
