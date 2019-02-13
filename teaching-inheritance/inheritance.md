@@ -10,6 +10,8 @@ _by Dan Roberts, Lead Instructor_
 
 Think back to when you were learning your first object-oriented programming language. If you learned to program in the last 15 years, there's a good chance that was your first language, period. You probably started off with simple concepts like conditionals and loops, moved on to methods, and then to classes. And then at some point your instructor (or mentor or tutorial video) introduced a concept called _inheritance_.
 
+![Typical textbook-style inheritance diagram](textbook-inheritance.png)
+
 If you're like me, your first exposure to inheritance was a bit of a mess. Maybe you couldn't quite get a handle on the syntax. Or maybe you were able to make it work on the class project and pass the exam, but couldn't quite figure out where you would ever use this in the real world. And then once that introductory course was over, you probably packed inheritance back up into your mental toolbox and didn't use it again for a long time.
 
 The fact is, inheritance is complicated. It's hard to use correctly, even for experienced engineers - it took me several years in industry before I felt like I had a good handle on the subject. Yet inheritance is a tool with first-class support in most modern languages, and which is taught to many novice programmers almost immediately.
@@ -85,6 +87,8 @@ Understanding how inheritance is used can give us some direction on how it shoul
 In Rails, almost every class you write will inherit from something. The two most common are
 - `ActiveRecord::Base` for models
 - `ActionController::Base` for controllers
+
+![Inheritance in Rails](rails-inheritance.png)
 
 You also see inheritance used for everything from database migrations to configuration management - its the Rails Way&trade;. If you want to do something, you inherit from a class somewhere in the Rails framework. These superclasses are generally quite abstract, and each covers some functionality specific to the domain of an MVC framework.
 
@@ -169,6 +173,6 @@ The instructional team at Ada has been unhappy with our approach to inheritance 
 
 At Ada, the first inheritance project takes the form of [OO Ride Share](https://github.com/AdaGold/oo-ride-share/). Students are asked to load information about drivers, passengers and trips from CSV files; we provide a `CsvRecord` superclass and `Passenger` and `Trip` subclasses pre-built. We feel this problem is complex enough to justify inheritance but simple enough to spin up on quickly. It also mimics the way ActiveRecord is used in Rails, which will hopefully lead to more comfort and deeper understanding once we get into our Rails unit.
 
-The second project is still in the planning phase, but the idea is a command-line app that integrates with the [Slack API](https://api.slack.com/). After an in-class design activity students will implement a `Recipient` superclass that handles most of the API interaction, and `User` and `Channel` subclasses that fill in the details. They will also build a driver class that interacts with the user, demonstrating the power of polymorphism. We don't have the project write-up finished yet, but there is a [prototype of the end product](https://github.com/droberts-ada/c11-week6-project).
+The second project is still in the planning phase, but the idea is a command-line app that integrates with the [Slack API](https://api.slack.com/). After an in-class design activity students will implement a `Recipient` superclass that handles most of the API interaction, and `User` and `Channel` subclasses that fill in the details. They will also build a command loop that interacts with the user, demonstrating the power of polymorphism. We don't have the project write-up finished yet, but there is a [prototype of the end product](https://github.com/droberts-ada/c11-week6-project).
 
 We've spent a lot of time thinking about this fresh approach to teaching inheritance, and I'm excited to see the results. Watch this space for an update in a couple months as we conclude our Intro to Ruby unit and move into Rails.
