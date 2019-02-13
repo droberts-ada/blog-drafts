@@ -120,6 +120,15 @@ Concretely, as I was spinning up at Isilon I spent a lot of time working on C++ 
 
 ### Summary
 
+
+ Setting                | Use case                 | Write subclasses | Write superclasses | Abstract classes | Template methods 
+------------------------|--------------------------|------------------|--------------------|------------------|---
+ Rails                  | Web servers              | ✅                | ❌                  | ✅                | ✅ 
+ React                  | Single-page applications | ✅                | ❌                  | ✅                | ✅ 
+ Android                | Mobile apps              | ✅                | ❌                  | ✅                | ✅ 
+ Unity                  | Video games              | ✅                | ✅                  | ✅                | ✅ 
+ First year in industry | Any or none of the above | ✅                | ❓                  | ✅                | ✅ 
+
 There are a few clear takeaways from this quick survey:
 
 - Inheritance solves a complex problem. Programs that benefit from inheritance tend to be fairly large
