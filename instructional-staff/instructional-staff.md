@@ -1,6 +1,6 @@
 # Instructional Team Update
 
-_by Dan Roberts, Lead Instructor / Interim Director of Education_
+_by Dan Roberts, Lead Instructor, Interim Director of Education_
 
 Hello Ada community! 
 
@@ -34,6 +34,12 @@ Second, the Lead Instructor position. You can think of the lead instructor as eq
 
 So what will I be doing when I get back in February? A number of things, which I've taken to thinking of as "special projects" for the instructional team. I'll spend some time supporting the existing program, working on curriculum or subbing in if a teacher gets sick or takes time off. I might get tapped to do big chunks of curriculum work if we determine they're needed. But the project I'm most excited about is rolling out a continuing education program for Ada alums.
 
-The idea of a post-Ada curriculum is something we've had our eye on for a while now, and it was one of the ideas that got the most enthusiastic response in the strategic planning survey (right up there with a pre-Ada program, which we're also currently investigating). We see this as a relatively low-cost, low-risk way to better support our community and further our mission, helping our alums to move up the career ladder and into senior and leadership roles.
+The idea of a post-Ada curriculum is something we've had our eye on for a while now, and it was one of the ideas that got the most enthusiastic response in the strategic planning survey (right up there with a pre-Ada program, which we're also currently investigating). We see this as a relatively low-cost, low-risk way to better support our community and further our mission, helping our alums to move up the career ladder and into senior and leadership roles. We also hope we can make it a space where alums can retreat from the male-dominated world of engineering, reconnect with each other and provide the mutual support and caring that Ada is known for.
 
 There were definitely some concerns along with the enthusiasm in the survey and we want to make sure we get this one right, with an eye toward equity and supporting the members of our community who need it most. We'll be sending out another survey to alums in the next week or so seeking input about this project. If you have thoughts on what we should offer, how much it should cost or how the courses should be structured that will be your opportunity to share them. If you have more nuanced ideas that don't necessarily fit in a survey response, send me an email (dan at adadev dot org) and let's go get coffee.
+
+## Final Thoughts
+
+We had a pretty rocky time in 2018, both on the instructional team and at Ada in general, but in 2019 it feels like things have stabilized. There's an energy, a forward motion, an optimism that is refreshing and sorely needed. We have some exciting new hires and a plan to grow the program in a way that is responsible and sustainable. It may sound a little corny (or like I've drank a little too much Kool Aid), but I feel better about Ada's prospects right now than I have at any time since I started. It's almost enough to make me regret taking this time off.
+
+Almost.
